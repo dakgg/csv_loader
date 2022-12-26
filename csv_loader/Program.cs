@@ -7,7 +7,13 @@ Dictionary<string, string> csvDic = new Dictionary<string, string>();
 foreach (var fi in dirInfo.GetFiles().Where(fi => fi.Extension == ".csv"))
 {
     csvDic.Add(Path.GetFileNameWithoutExtension(fi.Name), File.ReadAllText(fi.FullName));
+    var jarr = ProcessCsv(File.ReadAllText(fi.FullName));
+
 }
+
+
+
+
 
 static JArray ProcessCsv(string csv)
 {
